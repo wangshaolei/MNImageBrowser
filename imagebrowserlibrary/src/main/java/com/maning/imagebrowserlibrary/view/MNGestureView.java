@@ -83,9 +83,12 @@ public class MNGestureView extends RelativeLayout {
                     if (mScale < 0.3) {
                         mScale = 0.3f;
                     }
-                    setScaleX(mScale);
-                    setScaleY(mScale);
-
+                    try {
+                        setScaleX(mScale);
+                        setScaleY(mScale);
+                    } catch (Exception ex){
+                        Log.e("MNGestureView", Log.getStackTraceString(ex));
+                    }
                 }
                 if (deltaY < 0) {
                     setViewDefault();
